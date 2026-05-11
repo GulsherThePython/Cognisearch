@@ -1,7 +1,9 @@
 import constants
 import string
 
-query = input("> ")
+inp = input("> ")
+
+query = inp
 
 query = query.lower()
 
@@ -10,13 +12,16 @@ for character in query:
     if character not in constants.PUNCTUATION_TO_REMOVE:
         new_query += character
 
-query = new_query
 
-new_query = ""
-for word in query.split():
+query_words = []
+for word in new_query.split():
     if word not in constants.STOP_WORDS:
-        new_query += word + " "
+        query_words.append(word)
 
-query = new_query
+query = ""
+for word in query_words:
+    query += word + " "
+
+query = query.strip()
 
 print(query)
