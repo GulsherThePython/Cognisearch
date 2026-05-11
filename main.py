@@ -1,3 +1,9 @@
-query = input(">")
+import constants
+import string
 
-print(query.lower())
+query = input("> ")
+
+
+query = query.lower()
+for character in query:
+    pass
