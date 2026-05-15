@@ -13,15 +13,13 @@ for character in query:
         new_query += character
 
 
-query_words = []
+tokens = []
 for word in new_query.split():
     if word not in constants.STOP_WORDS:
-        query_words.append(word)
+        tokens.append(word)
 
-query = ""
-for word in query_words:
-    query += word + " "
+bigrams = []
+for word in range(0, len(tokens) - 1):
+    bigrams.append(tokens[word] + " " + tokens[word + 1])
 
-query = query.strip()
-
-print(query)
+print(bigrams)
