@@ -20,6 +20,7 @@ for word in new_query.split():
         tokens.append(word)
 
 # Stem the tokens
+
 for word in range(0, len(tokens)):
     for suffix in constants.SUFFIXES_TO_REMOVE:
         if tokens[word].endswith(suffix):
