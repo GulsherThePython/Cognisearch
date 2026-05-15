@@ -22,3 +22,7 @@ STOP_WORDS = [
     "not", "no", "nor",
     "if", "then", "else",
 ]
+
+SUFFIXES_TO_REMOVE = [
+    "tion", "ment", "less", "ness", "ful", "ing", "ed", "ly",
+]
