@@ -1,5 +1,5 @@
 import constants
-import string
+import os
 
 inp = input("> ")
 query = inp
