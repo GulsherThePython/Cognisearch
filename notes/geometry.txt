@@ -1,0 +1,51 @@
+Geometry is the branch of mathematics that studies shapes, sizes, angles, and positions of objects in space.
+
+A point has no size or dimension. It represents a location.
+
+A line is a straight one-dimensional figure that extends infinitely in both directions.
+
+A line segment has two endpoints and a finite length.
+
+A ray starts at one point and extends infinitely in one direction.
+
+An angle is formed when two rays share a common endpoint called the vertex.
+
+A right angle measures exactly 90 degrees.
+
+An acute angle is less than 90 degrees.
+
+An obtuse angle is greater than 90 degrees but less than 180 degrees.
+
+A triangle is a polygon with three sides and three angles.
+
+The sum of the interior angles of a triangle is always 180 degrees.
+
+An equilateral triangle has all sides equal and all angles equal to 60 degrees.
+
+An isosceles triangle has at least two equal sides.
+
+A scalene triangle has all sides of different lengths.
+
+A square is a quadrilateral with four equal sides and four right angles.
+
+A rectangle has opposite sides equal and four right angles.
+
+A parallelogram has opposite sides that are parallel and equal in length.
+
+The area of a rectangle is length times width.
+
+The area of a triangle is one half base times height.
+
+The Pythagorean theorem states that in a right triangle, a squared plus b squared equals c squared.
+
+A circle is the set of all points that are equidistant from a center point.
+
+The radius is the distance from the center of a circle to any point on it.
+
+The diameter of a circle is twice the radius.
+
+The circumference of a circle is two pi r.
+
+The area of a circle is pi r squared.
+
+Pi is approximately 3.14159 and represents the ratio of a circle's circumference to its diameter.

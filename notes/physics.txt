@@ -1,0 +1,55 @@
+Physics is the study of matter, energy, forces, and how they interact in the universe.
+
+Motion describes how an object changes position over time.
+
+Speed is the distance traveled per unit of time.
+
+Velocity is speed with a direction.
+
+Acceleration is the rate of change of velocity over time.
+
+Force is a push or pull that can change an object's motion.
+
+Newton's First Law states that an object at rest stays at rest and an object in motion stays in motion unless acted upon by a force.
+
+Newton's Second Law states that force equals mass times acceleration.
+
+Newton's Third Law states that every action has an equal and opposite reaction.
+
+Mass is the amount of matter in an object.
+
+Weight is the force of gravity acting on an object.
+
+Gravity is a force that attracts objects toward each other, especially toward Earth.
+
+Work is done when a force moves an object over a distance.
+
+Energy is the ability to do work.
+
+Kinetic energy is the energy of motion.
+
+Potential energy is stored energy due to an object's position or state.
+
+The law of conservation of energy states that energy cannot be created or destroyed, only transformed.
+
+Power is the rate at which work is done or energy is transferred.
+
+Momentum is mass times velocity.
+
+Friction is a force that opposes motion between two surfaces in contact.
+
+Friction converts kinetic energy into heat energy.
+
+Waves transfer energy without transferring matter.
+
+Sound waves require a medium like air or water to travel.
+
+Light waves can travel through a vacuum and do not require a medium.
+
+Electric current is the flow of electric charge.
+
+Voltage is the electrical potential difference between two points.
+
+Resistance is a measure of how much a material opposes electric current.
+
+Ohm's law states that voltage equals current times resistance.
