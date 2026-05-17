@@ -5,8 +5,8 @@ import proccess_notes
 
 # Ask user if they want to proccess the notes
 
-inp = input("Would you like to proccess the notes? (y/n) > ")
-if inp == "y":
+q = input("Would you like to proccess the notes? (y/n) > ")
+if q == "y":
     proccess_notes.main()
 
 # Get the query from the user
@@ -45,7 +45,6 @@ for word in range(0, len(tokens) - 1):
 
 # Begin searching through the notes
 
-# Example sentences
 sentence_data_list = []
 with open(os.path.join("notes", "sentence_data_list.txt"), "r") as f:
     sentence_data_list = json.loads(f.read())

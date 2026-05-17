@@ -10,3 +10,5 @@ env/
 
 # IDE files
 .vscode/
+
+test.py
