@@ -1,7 +1,7 @@
 PUNCTUATION_TO_REMOVE = [
     ".", ",", "?", "!", ";", ":", "'", '"',
     "(", ")", "[", "]", "{", "}",
-    "-", "—", "–",
+    "-", "—", "-",
     "...", "…",
     "/", "\\",
     "@", "#", "$", "%", "&", "*",
@@ -45,5 +45,5 @@ STOP_WORDS = [
 ]
 
 SUFFIXES_TO_REMOVE = [
-    "tion", "ment", "less", "ness", "ning", "ing", "ful", "ed", "ly",
+    "tion", "ment", "less", "ness", "ning", "ing", "ful", "ed", "ly", "es", "s",
 ]
