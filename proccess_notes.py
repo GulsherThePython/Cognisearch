@@ -1,4 +1,4 @@
-import constants
+from constants import Sentence
 from pathlib import Path
 import json
 import os
@@ -13,45 +13,16 @@ def main():
         with open(file, "r") as f:
             contents = f.read()
 
-            # Split the contents into sentences
             sentences = contents.split(".")
-
-            # Loop through the sentences and process them
             for sentence in sentences:
-                sentence_data = {}
-                # Normalize the sentence
-                og_sentence = sentence
-                sentence = sentence.lower()
-
-                new_sentence = ""
-                for character in sentence:
-                    if character not in constants.PUNCTUATION_TO_REMOVE:
-                        new_sentence += character
-                
-                # Remove stop words
-                tokens = []
-                for word in new_sentence.split():
-                    if word not in constants.STOP_WORDS:
-                        tokens.append(word)
-
-                # Stem the tokens
-                for word in range(0, len(tokens)):
-                    for suffix in constants.SUFFIXES_TO_REMOVE:
-                        if tokens[word].endswith(suffix):
-                            if len(tokens[word]) > 5:
-                                tokens[word] = tokens[word][:-len(suffix)]
-                            break
-                
-                # Extract bigrams
-                bigrams = []
-                for word in range(0, len(tokens) - 1):
-                    bigrams.append(tokens[word] + " " + tokens[word + 1])
-                
-                sentence_data["bigrams"] = bigrams
-                sentence_data["tokens"] = tokens
-                sentence_data["sentence"] = og_sentence
-                sentence_data["source"] = file.name
-                sentence_data_list.append(sentence_data)
+                sentence_data = Sentence(sentence, file.stem)
+                sentence_data.process_sentence()
+                sentence_data_list.append({
+                    "sentence": sentence_data.sentence,
+                    "source": sentence_data.source,
+                    "tokens": sentence_data.tokens,
+                    "bigrams": sentence_data.bigrams
+                })
 
     with open(os.path.join("notes", "sentence_data_list.txt"), "w") as f:
         json.dump(sentence_data_list, f)
