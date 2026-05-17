@@ -1,8 +1,16 @@
 import constants
 import os
 import json
+import proccess_notes
 
-inp = input("> ")
+# Ask user if they want to proccess the notes
+
+inp = input("Would you like to proccess the notes? (y/n) > ")
+if inp == "y":
+    proccess_notes.main()
+
+# Get the query from the user
+inp = input("Enter the query > ")
 query = inp
 
 # Normalize the query
@@ -38,28 +46,9 @@ for word in range(0, len(tokens) - 1):
 # Begin searching through the notes
 
 # Example sentences
-sentence_data_list = [
-    {
-        "sentence": "Hello world, my name is Gulsher the Python", 
-        "tokens": ["hello", "world", "name", "gulsher", "python"],
-        "bigrams": ["hello world", "world name", "name gulsher", "gulsher python"],
-        "source": "test.txt"
-    },
-    {
-        "sentence": "I am learning make names in Python", 
-        "tokens": ["learning", "make", "names", "python"],
-        "bigrams": ["learning make", "make names", "names python"],
-        "source": "test.txt"
-    },
-    {
-        "sentence": "Python is a great programming language that Gulsher loves naming", 
-        "tokens": ["python", "great", "programming", "language", "gulsher", "loves", "naming"],
-        "bigrams": ["python great", "great programming", "programming language", "language gulsher", "gulsher loves", "loves naming"],
-        "source": "test.txt"
-    }
-]
-# with open(os.path.join("notes", "sentence_data_list.txt"), "r") as f:
-#     sentence_data_list = json.load(f)
+sentence_data_list = []
+with open(os.path.join("notes", "sentence_data_list.txt"), "r") as f:
+    sentence_data_list = json.loads(f.read())
 
 scores = []
 for sentence in sentence_data_list:
@@ -70,4 +59,9 @@ for sentence in sentence_data_list:
     
     scores.append({sentence["sentence"]: score})
 
-print(scores)
+def get_score(item):
+    return list(item.values())[0]
+
+scores.sort(key=get_score, reverse=True)
+
+print(scores[0])
