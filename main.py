@@ -31,16 +31,26 @@ for sentence in sentence_data_list:
     score = 0
     for token in query.tokens:
         for s_token in sentence["tokens"]:
-            if is_fuzzy_match(token, s_token):
+            if s_token == token:
+                score += 2
+                break
+            elif is_fuzzy_match(token, s_token):
                 score += 1
                 break
     
     for bigram in query.bigrams:
         for s_bigram in sentence["bigrams"]:
-            if is_fuzzy_match(bigram, s_bigram):
-                score += 2
+            if bigram == s_bigram:
+                score += 5
+                break
+            elif bigram in s_bigram:
+                score += 3
+                break
+            elif s_bigram in bigram:
+                score += 3
                 break
     
+    score = score / max(len(sentence["tokens"]), 1)
     scores.append([sentence, score])
 
 def get_score(item):

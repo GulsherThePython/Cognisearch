@@ -23,6 +23,11 @@ def main():
                     "bigrams": sentence_data.bigrams,
                     "source": sentence_data.source
                 })
+    
+    sentence_data_list = [
+        s for s in sentence_data_list
+        if s["sentence"].strip() != ""
+    ]
 
     with open(os.path.join("notes", "sentence_data_list.txt"), "w") as f:
         json.dump(sentence_data_list, f)
