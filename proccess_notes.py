@@ -1,4 +1,4 @@
-from constants import Sentence
+from sentence import Sentence
 from pathlib import Path
 import json
 import os
@@ -19,9 +19,9 @@ def main():
                 sentence_data.process_sentence()
                 sentence_data_list.append({
                     "sentence": sentence_data.sentence,
-                    "source": sentence_data.source,
                     "tokens": sentence_data.tokens,
-                    "bigrams": sentence_data.bigrams
+                    "bigrams": sentence_data.bigrams,
+                    "source": sentence_data.source
                 })
 
     with open(os.path.join("notes", "sentence_data_list.txt"), "w") as f:
