@@ -13,7 +13,7 @@ def main():
         with open(file, "r") as f:
             contents = f.read()
 
-            sentences = contents.split(".")
+            sentences = contents.split("\n\n") # Split by double newlines to separate sentences
             for sentence in sentences:
                 sentence_data = Sentence(sentence, file.stem)
                 sentence_data.process_sentence()

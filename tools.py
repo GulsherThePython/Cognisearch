@@ -1,21 +1,33 @@
 def is_fuzzy_match(a, b):
-    # If they are identical, they are a match
     if a == b:
         return True
 
-    # If the lengths are too different, they are not a match
-    if abs(len(a) - len(b)) > 2:
+    len_a, len_b = len(a), len(b)
+
+    # If the difference in length is more than 2, return false
+    if abs(len_a - len_b) > 2:
         return False
 
-    # check character overlap
-    common = 0
-    for char in a:
-        if char in b:
-            common += 1
-    
-    # Compute the fraction of characters that overlap to the length of the longer word
-    char_overlap_similarity = common / (len(a) if len(a) > len(b) else len(b))
+    # If one string is longer than the other, swap them
+    if len_a > len_b:
+        a, b = b, a
+        len_a, len_b = len_b, len_a
 
-    return char_overlap_similarity > 0.7
+    best_match = 0
 
-    # TODO: Implement Bigram fuzzy matching as well
+    # Check if the shorter string is a substring of the longer string
+    for i in range(len_b - len_a + 1):
+        match = 0
+
+        # Check if the characters match
+        for j in range(len_a):
+            if a[j] == b[i + j]:
+                match += 1
+
+        # Update the best match
+        best_match = max(best_match, match)
+
+    # Calculate the similarity score
+    similarity = best_match / len_a
+
+    return similarity >= 0.75
