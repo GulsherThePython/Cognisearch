@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Document</h1>
-    </body>
-</html>
+{% block title %}Cognisearch - Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome to Cognisearch</h1>
+        <p>Your personal note search engine.</p>
+        <a href="{{ url_for('search') }}" class="btn">Start Searching Today!</a>
+    </div>
+{% endblock %}
