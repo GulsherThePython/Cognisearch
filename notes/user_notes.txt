@@ -1,0 +1,2 @@
+The derivative of acceleration is jerk.
+
