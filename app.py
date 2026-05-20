@@ -1,9 +1,10 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, flash
 from engine import run
 from pathlib import Path
 from proccess_notes import main as process_notes
 
 app = Flask(__name__)
+app.secret_key = "shhh_its_a_secret"
 
 @app.route("/")
 def home():
@@ -54,6 +55,8 @@ def add_note():
         f.write(note.strip() + "\n\n")
     
     process_notes()
+
+    flash("Note added successfully", "success")
     return redirect(url_for("notes"))
 
 @app.route("/delete_note/<int:note_index>")
@@ -93,4 +96,5 @@ def delete_note(note_index):
 
     process_notes()
 
+    flash("Note deleted successfully", "success")
     return redirect(url_for("notes"))
