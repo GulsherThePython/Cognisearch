@@ -55,3 +55,42 @@ def add_note():
     
     process_notes()
     return redirect(url_for("notes"))
+
+@app.route("/delete_note/<int:note_index>")
+def delete_note(note_index):
+    notes_path = Path("notes")
+
+    # Build list of (note, file)
+    all_notes = []
+    for file in notes_path.iterdir():
+        if file.stem == "sentence_data_list":
+            continue
+
+        with open(file, "r") as f:
+            raw_contents = f.read().split("\n\n")
+
+            for note in raw_contents:
+                if note.strip():
+                    all_notes.append([note, file])
+
+    # Safety check
+    if note_index < 0 or note_index >= len(all_notes):
+        return redirect(url_for("notes"))
+
+    # Find target
+    target_note = all_notes[note_index][0]
+    target_file = all_notes[note_index][1]
+
+    # Delete the target note from the file
+    with open(target_file, "r") as f:
+        raw_contents = f.read().split("\n\n")
+
+    updated_notes = [note for note in raw_contents if note.strip() and note != target_note]
+
+    # Rewrite the file with the updated notes
+    with open(target_file, "w") as f:
+        f.write("\n\n".join(updated_notes))
+
+    process_notes()
+
+    return redirect(url_for("notes"))
