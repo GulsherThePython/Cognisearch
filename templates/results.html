@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Results</title>
-    </head>
-    <body>
-        <h1>Results</h1>
-        {{ results }}
-    </body>
-</html>
+{% block title %}Cognisearch - Results{% endblock %}
+
+{% block content %}
+    <h1>Search Results</h1>
+    <div>
+        <h2>Query: {{ query }}</h2>
+        <p>Showing top {{ count }} results.</p>
+    </div>
+    {% for result in results %}
+        <div class="card">
+            <h3>{{ result[0]["sentence"] }}</h3>
+            <p>Source: {{ result[0]["source"] }}</p>
+            <p>Score: {{ result[1] }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

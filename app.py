@@ -10,7 +10,13 @@ def home():
 @app.route("/search", methods=["POST", "GET"])
 def search():
     if request.method == "POST":
-        return render_template("results.html", results=run(request.form["query"])[0:5])
+        query = request.form["query"]
+        raw_results = run(query)[0:5]
+        results = []
+        for result in raw_results:
+            if result[1] != 0:
+                results.append(result)
+        return render_template("results.html", results=results, query=query, count=len(results))
     return render_template("search.html")
 
 @app.route("/about")
