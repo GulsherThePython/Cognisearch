@@ -13,4 +13,6 @@ def search():
         return render_template("results.html", results=run(request.form["query"])[0:5])
     return render_template("search.html")
 
-
+@app.route("/about")
+def about():
+    return render_template("about.html")
