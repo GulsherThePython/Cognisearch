@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Cognisearch - Notes{% endblock %}
+
+{% block content %}
+    <h1>Your Notes</h1>
+    {% for note in notes %}
+        <div class="card">
+            <p>{{ note }}</p>
+        </div>
+    {% endfor %}
+    <br><br>
+    <h1>Add Note</h1>
+    <form method="POST" action="{{ url_for('add_note') }}">
+        <textarea name="note" placeholder="Enter your note here..." rows="10" cols="50"></textarea><br>
+        <button type="submit">Add Note</button>
+    </form>
+{% endblock %}
