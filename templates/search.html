@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Search Page</h1>
-        <form action="/search" method="post">
-            <input type="text" name="query" placeholder="Enter your search query">
-            <button type="submit" value="Search">Search</button>
-        </form>
-    </body>
-</html>
+{% block title %}Cognisearch - Search{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Search your notes</h2>
+    <form method="POST">
+        <input type="text" name="query" placeholder="Enter your search query here..."/>
+        <button type="submit">Search</button>
+    </form> 
+</div>
+{% endblock %}

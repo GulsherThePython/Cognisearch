@@ -40,13 +40,6 @@ body {
     margin: 40px auto;
 }
 
-.card {
-    background: #111827;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
 .btn {
     padding: 10px 15px;
     border: none;
